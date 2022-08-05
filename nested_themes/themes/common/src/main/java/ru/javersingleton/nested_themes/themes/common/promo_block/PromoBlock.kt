@@ -11,7 +11,7 @@ import ru.javersingleton.nested_themes.themes.common.content.LocalContentStyles
 @Composable
 fun PromoBlock(
     modifier: Modifier = Modifier,
-    style: PromoBlockStyle = Theme.promoBlockDefault,
+    style: PromoBlockStyle = Theme.promoBlock(),
     content: @Composable () -> Unit
 ) {
     Surface(

@@ -8,9 +8,10 @@ import ru.javersingleton.nested_themes.themes.common.*
 import ru.javersingleton.nested_themes.themes.common.button.ButtonStyle
 import ru.javersingleton.nested_themes.themes.common.button.buttonPrimaryLarge
 import ru.javersingleton.nested_themes.themes.common.content.ContentStyles
-import ru.javersingleton.nested_themes.themes.common.content.contentDefault
+import ru.javersingleton.nested_themes.themes.common.content.contentStyles
 import ru.javersingleton.nested_themes.themes.common.promo_block.PromoBlockStyle
-import ru.javersingleton.nested_themes.themes.common.promo_block.promoBlockDefault
+import ru.javersingleton.nested_themes.themes.common.promo_block.promoBlock
+import ru.javersingleton.nested_themes.themes.redesign.button.redesignButtonPrimary
 
 object RedesignTheme {
     val colors: RedesignColors
@@ -32,9 +33,9 @@ fun RedesignTheme(
     colors: RedesignColors = RedesignTheme.colors,
     typography: RedesignTypography = RedesignTheme.typography,
     shapes: RedesignShapes = RedesignTheme.shapes,
-    buttonPrimaryLarge: @Composable () -> ButtonStyle = { Theme.buttonPrimaryLarge() },
-    contentDefault: @Composable () -> ContentStyles = { Theme.contentDefault() },
-    promoBlockDefault: @Composable () -> PromoBlockStyle = { Theme.promoBlockDefault() },
+    buttonPrimaryLarge: StyleProvider<ButtonStyle> = RedesignTheme.redesignButtonPrimary,
+    contentStyles: StyleProvider<ContentStyles> = Theme.contentStyles,
+    promoBlock: StyleProvider<PromoBlockStyle> = Theme.promoBlock,
     content: @Composable () -> Unit
 ) {
     CompositionLocalProvider(
@@ -57,8 +58,8 @@ fun RedesignTheme(
                 micro = shapes.micro
             ),
             buttonPrimaryLarge = buttonPrimaryLarge,
-            contentDefault = contentDefault,
-            promoBlockDefault = promoBlockDefault,
+            contentStyles = contentStyles,
+            promoBlock = promoBlock,
         ) {
             content()
         }

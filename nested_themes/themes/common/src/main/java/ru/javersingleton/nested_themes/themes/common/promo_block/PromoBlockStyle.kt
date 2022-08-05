@@ -4,23 +4,39 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
+import ru.javersingleton.nested_themes.themes.common.StyleProvider
 import ru.javersingleton.nested_themes.themes.common.Theme
+import ru.javersingleton.nested_themes.themes.common.button.buttonPrimaryLarge
 import ru.javersingleton.nested_themes.themes.common.content.ContentStyles
 import ru.javersingleton.nested_themes.themes.common.content.contentStyles
+import ru.javersingleton.nested_themes.themes.common.lazyStyle
 
 data class PromoBlockStyle(
-    val contentStyles: ContentStyles,
+    val contentStyles: StyleProvider<ContentStyles>,
 )
 
-@Composable
-fun Theme.promoBlockDefault(): PromoBlockStyle = PromoBlockStyle(
-    contentStyles = contentStyles
-)
-val LocalPromoBlockDefault: ProvidableCompositionLocal<PromoBlockStyle> =
-    staticCompositionLocalOf { throw IllegalStateException() }
+val LocalPromoBlock: ProvidableCompositionLocal<StyleProvider<PromoBlockStyle>> =
+    staticCompositionLocalOf {
+        lazyStyle {
+            PromoBlockStyle(
+                contentStyles = lazyStyle(Theme.contentStyles) {
+                    copy(
+                        buttonPrimaryStyle = lazyStyle(Theme.buttonPrimaryLarge) {
+                            copy(
+                                backgroundColor = Theme.colors.warmGray4
+                            )
+                        }
+                    )
+                }
+            )
+        }
+    }
 
-val Theme.promoBlockDefault: PromoBlockStyle
+val Theme.promoBlock: StyleProvider<PromoBlockStyle>
     @Composable
     @ReadOnlyComposable
-    get() = LocalPromoBlockDefault.current
+    get() = LocalPromoBlock.current
+
+
+
 

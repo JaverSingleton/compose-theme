@@ -12,8 +12,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
-import ru.javersingleton.nested_themes.themes.common.Theme
 
 
 @OptIn(ExperimentalMaterialApi::class)

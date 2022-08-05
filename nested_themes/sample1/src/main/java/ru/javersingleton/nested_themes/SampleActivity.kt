@@ -19,13 +19,13 @@ class SampleActivity : AppCompatActivity() {
                     PromoBlock {
                         Button(
                             title = "In PromoBlock",
-                            style = Theme.contentStyles.buttonPrimaryStyle,
+                            style = Theme.contentStyles().buttonPrimaryStyle(),
                             onClick = { }
                         )
                     }
                     Button(
                         title = "Out PromoBlock",
-                        style = Theme.contentStyles.buttonPrimaryStyle,
+                        style = Theme.contentStyles().buttonPrimaryStyle(),
                         onClick = { }
                     )
                 }
