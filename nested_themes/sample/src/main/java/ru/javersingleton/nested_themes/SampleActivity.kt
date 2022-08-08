@@ -9,7 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import ru.javersingleton.nested_themes.themes.common.StyleProvider
 import ru.javersingleton.nested_themes.themes.common.Theme
+import ru.javersingleton.nested_themes.themes.common.component.button.Button
 import ru.javersingleton.nested_themes.themes.common.component.content.Content
+import ru.javersingleton.nested_themes.themes.common.component.content.ContentStyle
 import ru.javersingleton.nested_themes.themes.common.component.content.LocalContentStyle
 import ru.javersingleton.nested_themes.themes.common.lazyStyle
 import ru.javersingleton.nested_themes.themes.common.component.promo_block.PromoBlock
@@ -29,23 +31,30 @@ class SampleActivity : AppCompatActivity() {
                     PromoBlock(
                         title = "PromoBlock",
                         description = "Description text",
-                        primaryButton = Content.Button(
-                            text = "Button",
-                            onClick = { }
-                        ),
-                        secondaryButton = Content.Button(
-                            text = "Button",
-                            onClick = { }
-                        ),
+                        buttonsPanel = {
+                            RedesignButton(
+                                onClick = { /*TODO*/ },
+                                title = "Primary Button",
+                                style = it.buttonPrimaryStyle()
+                            )
+                            RedesignButton(
+                                onClick = { /*TODO*/ },
+                                title = "Secondary Button",
+                                style = it.buttonSecondaryStyle()
+                            )
+                        },
                         style = myScreenPromoBlockStyle()
                     )
-                    PromoBlock(style = myScreenPromoBlockStyle()) { contentStyles ->
-                        RedesignButton(
-                            title = "Button",
-                            style = contentStyles.buttonPrimaryStyle(),
-                            onClick = { }
-                        )
-                    }
+                    PromoBlock(
+                        style = myScreenPromoBlockStyle(),
+                        content = {
+                            RedesignButton(
+                                title = "Button",
+                                style = it.buttonPrimaryStyle(),
+                                onClick = { }
+                            )
+                        }
+                    )
                 }
                 ScreenTheme {
                     RedesignButton(

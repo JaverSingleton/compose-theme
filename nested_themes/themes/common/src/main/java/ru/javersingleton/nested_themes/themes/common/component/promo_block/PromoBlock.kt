@@ -17,21 +17,20 @@ fun PromoBlock(
     style: PromoBlockStyle = Theme.styles.promoBlock(),
     title: String? = null,
     description: String? = null,
-    primaryButton: Content.Button? = null,
-    secondaryButton: Content.Button? = null,
+    buttonsPanel: (@Composable RowScope.(contentStyle: ContentStyle) -> Unit)? = null,
 ) {
     PromoBlock(
         modifier = modifier,
-        style = style
-    ) {
-        Content(
-            title = title,
-            description = description,
-            primaryButton = primaryButton,
-            secondaryButton = secondaryButton,
-            style = style.contentStyle(),
-        )
-    }
+        style = style,
+        content = {
+            Content(
+                title = title,
+                description = description,
+                buttonsPanel = buttonsPanel,
+                style = it,
+            )
+        }
+    )
 }
 
 @Composable

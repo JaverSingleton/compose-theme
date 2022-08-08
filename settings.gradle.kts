@@ -14,7 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "compose-theme"
 include(
-    ":nested_themes:sample1",
+    ":nested_themes:sample",
     ":nested_themes:themes:common",
     ":nested_themes:themes:redesign"
 )
