@@ -1,39 +1,60 @@
-package ru.javersingleton.nested_themes.themes.redesign.button
+package ru.javersingleton.nested_themes.sample3
 
-import androidx.compose.foundation.layout.size
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
-import ru.javersingleton.nested_themes.themes.common.StyleProvider
-import ru.javersingleton.nested_themes.themes.common.Theme
+import ru.javersingleton.nested_themes.themes.common.component.button.Button
 import ru.javersingleton.nested_themes.themes.common.component.button.ButtonStyle
-import ru.javersingleton.nested_themes.themes.common.component.button.DefaultButtonStyle
-import ru.javersingleton.nested_themes.themes.common.lazyStyle
 
-interface RedesignButtonStyle : ButtonStyle {
+@OptIn(ExperimentalMaterialApi::class)
+@Composable
+fun Sample3Button(
+    onClick: () -> Unit,
+    title: String,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    isSpinnerEnabled: Boolean = false,
+    iconLeft: (@Composable () -> Unit)? = null,
+    iconRight: (@Composable () -> Unit)? = null,
+    style: ButtonStyle,
+) {
+    val prefixText = (style as? Sample3ButtonStyle)?.textPrefix.orEmpty()
+    Button(
+        onClick,
+        "$prefixText$title",
+        modifier,
+        enabled,
+        isSpinnerEnabled,
+        iconLeft,
+        iconRight,
+        style
+    )
+}
+interface Sample3ButtonStyle : ButtonStyle {
     val parent: ButtonStyle
     val textPrefix: String?
 
     fun copy(
         parent: ButtonStyle = this.parent,
         textPrefix: String? = this.textPrefix
-    ): RedesignButtonStyle
+    ): Sample3ButtonStyle
 
 }
 
-class DefaultRedesignButtonStyle(
+class DefaultSample3ButtonStyle(
     override val parent: ButtonStyle,
     override val textPrefix: String?
-) : RedesignButtonStyle,
+) : Sample3ButtonStyle,
     ButtonStyle by parent {
 
     override fun copy(
         parent: ButtonStyle,
         textPrefix: String?
-    ): RedesignButtonStyle = DefaultRedesignButtonStyle(
+    ): Sample3ButtonStyle = DefaultSample3ButtonStyle(
         parent = parent,
         textPrefix = textPrefix
     )
@@ -72,27 +93,4 @@ class DefaultRedesignButtonStyle(
         )
     )
 
-}
-
-
-fun createRedesignButtonPrimaryLarge(): StyleProvider<RedesignButtonStyle> = lazyStyle {
-    DefaultRedesignButtonStyle(
-        parent = DefaultButtonStyle(
-            backgroundColor = Theme.colors.blue,
-            contentColor = Theme.colors.constantWhite,
-            pressedColor = Theme.colors.blue600,
-            disabledBackgroundColor = Theme.colors.warmGray4,
-            disabledContentColor = Theme.colors.gray28,
-            minSize = 44.dp,
-            textStyle = Theme.typography.m1,
-            iconModifier = Modifier.size(22.dp),
-            iconPadding = 6.dp,
-            spinnerModifier = Modifier.size(22.dp),
-            horizontalPadding = 16.dp,
-            spinnerStroke = 2.dp,
-            elevation = 0.dp,
-            shape = Theme.shapes.micro,
-        ),
-        textPrefix = "Redesign ",
-    )
 }
