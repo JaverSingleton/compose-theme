@@ -9,8 +9,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import ru.javersingleton.nested_themes.themes.common.StyleProvider
 import ru.javersingleton.nested_themes.themes.common.Theme
-import ru.javersingleton.nested_themes.themes.common.button.ButtonStyle
-import ru.javersingleton.nested_themes.themes.common.button.DefaultButtonStyle
+import ru.javersingleton.nested_themes.themes.common.component.button.ButtonStyle
+import ru.javersingleton.nested_themes.themes.common.component.button.DefaultButtonStyle
 import ru.javersingleton.nested_themes.themes.common.lazyStyle
 
 interface RedesignButtonStyle : ButtonStyle {

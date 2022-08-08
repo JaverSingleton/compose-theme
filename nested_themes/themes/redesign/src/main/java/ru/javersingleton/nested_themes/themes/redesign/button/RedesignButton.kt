@@ -3,8 +3,8 @@ package ru.javersingleton.nested_themes.themes.redesign.button
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import ru.javersingleton.nested_themes.themes.common.button.Button
-import ru.javersingleton.nested_themes.themes.common.button.ButtonStyle
+import ru.javersingleton.nested_themes.themes.common.component.button.Button
+import ru.javersingleton.nested_themes.themes.common.component.button.ButtonStyle
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable

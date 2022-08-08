@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import ru.javersingleton.nested_themes.themes.common.Theme
-import ru.javersingleton.nested_themes.themes.common.content.LocalContentStyles
+import ru.javersingleton.nested_themes.themes.common.component.content.LocalContentStyles
 import ru.javersingleton.nested_themes.themes.common.lazyStyle
-import ru.javersingleton.nested_themes.themes.common.promo_block.PromoBlock
-import ru.javersingleton.nested_themes.themes.common.promo_block.PromoBlockStyle
+import ru.javersingleton.nested_themes.themes.common.component.promo_block.PromoBlock
+import ru.javersingleton.nested_themes.themes.common.component.promo_block.PromoBlockStyle
 import ru.javersingleton.nested_themes.themes.redesign.RedesignTheme
 import ru.javersingleton.nested_themes.themes.redesign.button.RedesignButton
 

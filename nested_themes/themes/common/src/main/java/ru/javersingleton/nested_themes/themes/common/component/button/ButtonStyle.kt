@@ -1,4 +1,4 @@
-package ru.javersingleton.nested_themes.themes.common.button
+package ru.javersingleton.nested_themes.themes.common.component.button
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.ui.Modifier
