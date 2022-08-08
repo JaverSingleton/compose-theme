@@ -13,6 +13,11 @@ data class RedesignTypography(
         lineHeight = 22.sp,
         fontWeight = FontWeight.Regular,
     ),
+    val h5: TextStyle = TextStyle(
+        fontSize = 16.sp,
+        lineHeight = 20.sp,
+        fontWeight = FontWeight.Heavy,
+    )
 )
 
 object FontWeight {

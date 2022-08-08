@@ -41,19 +41,22 @@ fun RedesignTheme(
         Theme(
             colors = Colors(
                 constantWhite = colors.constantWhite,
+                constantBlack = colors.constantBlack,
                 blue = colors.blue,
                 blue600 = colors.blue600,
                 warmGray4 = colors.warmGray4,
-                gray28 = colors.gray28
+                gray28 = colors.gray28,
+                green50 = colors.green50,
             ),
             typography = Typography(
-                m1 = typography.m1
+                m1 = typography.m1,
+                h5 = typography.h5,
             ),
             shapes = Shapes(
                 micro = shapes.micro
             ),
             styles = Styles(
-                contentStyles = styles.contentStyles,
+                contentStyle = styles.contentStyle,
                 buttonPrimaryLarge = styles.buttonPrimaryLarge,
                 promoBlock = styles.promoBlock
             )

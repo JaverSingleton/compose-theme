@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
-import ru.javersingleton.nested_themes.themes.common.component.content.LocalContentStyles
+import ru.javersingleton.nested_themes.themes.common.component.content.LocalContentStyle
 
 // 1. При создании нового компонента разработчик должен иметь возможность использовать для стиля токены
 // 2. После внесения компонента в токены разработчик должен иметь возможность изменить стиль на своём уровне
@@ -45,7 +45,7 @@ fun Theme(
     ) {
         CompositionLocalProvider(
             LocalStyles provides remember { styles },
-            LocalContentStyles provides remember { styles.contentStyles }
+            LocalContentStyle provides remember { styles.contentStyle }
         ) {
             MaterialTheme {
                 content()
