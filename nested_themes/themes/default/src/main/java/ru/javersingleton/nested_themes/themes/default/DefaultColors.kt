@@ -1,10 +1,10 @@
-package ru.javersingleton.nested_themes.themes.redesign
+package ru.javersingleton.nested_themes.themes.default
 
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
-data class RedesignColors(
+data class DefaultColors(
     val constantWhite: Color = Color(0xFFFFFFFF),
     val constantBlack: Color = Color(0xFF000000),
     val blue: Color = Color(0xFF00AAFF),
@@ -14,5 +14,5 @@ data class RedesignColors(
     val green50: Color = Color(0xFFEAFCCF),
 )
 
-internal val LocalRedesignColors: ProvidableCompositionLocal<RedesignColors> =
-    staticCompositionLocalOf { RedesignColors() }
+internal val LocalDefaultColors: ProvidableCompositionLocal<DefaultColors> =
+    staticCompositionLocalOf { DefaultColors() }

@@ -16,5 +16,5 @@ rootProject.name = "compose-theme"
 include(
     ":nested_themes:sample",
     ":nested_themes:themes:common",
-    ":nested_themes:themes:redesign"
+    ":nested_themes:themes:default"
 )

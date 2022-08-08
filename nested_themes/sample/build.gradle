@@ -41,7 +41,7 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':nested_themes:themes:redesign')
+    implementation project(path: ':nested_themes:themes:default')
 
     implementation libs.appCompat
     implementation libs.material

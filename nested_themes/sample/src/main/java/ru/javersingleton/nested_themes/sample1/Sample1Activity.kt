@@ -10,11 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import ru.javersingleton.nested_themes.themes.common.Theme
 import ru.javersingleton.nested_themes.themes.common.component.button.Button
-import ru.javersingleton.nested_themes.themes.redesign.RedesignTheme
+import ru.javersingleton.nested_themes.themes.default.DefaultTheme
 
 class Sample1Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +23,7 @@ class Sample1Activity : AppCompatActivity() {
                 verticalArrangement = Arrangement.spacedBy(6.dp)
             ) {
                 val defaultTheme = @Composable { content: @Composable () -> Unit ->
-                    RedesignTheme {
+                    DefaultTheme {
                         content()
                     }
                 }

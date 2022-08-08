@@ -1,4 +1,4 @@
-package ru.javersingleton.nested_themes.themes.redesign
+package ru.javersingleton.nested_themes.themes.default
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -6,37 +6,37 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
 import ru.javersingleton.nested_themes.themes.common.*
 
-object RedesignTheme {
-    val colors: RedesignColors
+object DefaultTheme {
+    val colors: DefaultColors
         @Composable
         @ReadOnlyComposable
-        get() = LocalRedesignColors.current
-    val typography: RedesignTypography
+        get() = LocalDefaultColors.current
+    val typography: DefaultTypography
         @Composable
         @ReadOnlyComposable
-        get() = LocalRedesignTypography.current
-    val styles: RedesignStyles
+        get() = LocalDefaultTypography.current
+    val styles: DefaultStyles
         @Composable
         @ReadOnlyComposable
-        get() = LocalRedesignStyles.current
-    val shapes: RedesignShapes
+        get() = LocalDefaultStyles.current
+    val shapes: DefaultShapes
         @Composable
         @ReadOnlyComposable
-        get() = LocalRedesignShapes.current
+        get() = LocalDefaultShapes.current
 }
 
 @Composable
-fun RedesignTheme(
-    colors: RedesignColors = RedesignTheme.colors,
-    typography: RedesignTypography = RedesignTheme.typography,
-    shapes: RedesignShapes = RedesignTheme.shapes,
-    styles: RedesignStyles = RedesignTheme.styles,
+fun DefaultTheme(
+    colors: DefaultColors = DefaultTheme.colors,
+    typography: DefaultTypography = DefaultTheme.typography,
+    shapes: DefaultShapes = DefaultTheme.shapes,
+    styles: DefaultStyles = DefaultTheme.styles,
     content: @Composable () -> Unit
 ) {
     CompositionLocalProvider(
-        LocalRedesignColors provides remember { colors },
-        LocalRedesignShapes provides remember { shapes },
-        LocalRedesignTypography provides remember { typography },
+        LocalDefaultColors provides remember { colors },
+        LocalDefaultShapes provides remember { shapes },
+        LocalDefaultTypography provides remember { typography },
     ) {
         Theme(
             colors = Colors(

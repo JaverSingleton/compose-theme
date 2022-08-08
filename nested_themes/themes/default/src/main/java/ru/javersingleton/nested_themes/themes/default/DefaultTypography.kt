@@ -1,4 +1,4 @@
-package ru.javersingleton.nested_themes.themes.redesign
+package ru.javersingleton.nested_themes.themes.default
 
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.Stable
@@ -7,7 +7,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.font.FontWeight as ComposeFontWeight
 
-data class RedesignTypography(
+data class DefaultTypography(
     val m1: TextStyle = TextStyle(
         fontSize = 16.sp,
         lineHeight = 22.sp,
@@ -28,5 +28,5 @@ object FontWeight {
     val Heavy = ComposeFontWeight.W700
 }
 
-internal val LocalRedesignTypography: ProvidableCompositionLocal<RedesignTypography> =
-    staticCompositionLocalOf { RedesignTypography() }
+internal val LocalDefaultTypography: ProvidableCompositionLocal<DefaultTypography> =
+    staticCompositionLocalOf { DefaultTypography() }

@@ -12,13 +12,13 @@ import androidx.compose.ui.unit.dp
 import ru.javersingleton.nested_themes.themes.common.component.button.Button
 import ru.javersingleton.nested_themes.themes.common.component.content.LocalContentStyle
 import ru.javersingleton.nested_themes.themes.common.component.promo_block.PromoBlock
-import ru.javersingleton.nested_themes.themes.redesign.RedesignTheme
+import ru.javersingleton.nested_themes.themes.default.DefaultTheme
 
 class Sample2Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            RedesignTheme {
+            DefaultTheme {
                 Column(
                     verticalArrangement = Arrangement.spacedBy(6.dp)
                 ) {

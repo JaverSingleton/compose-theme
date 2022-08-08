@@ -14,13 +14,13 @@ import ru.javersingleton.nested_themes.sample2.Sample2Activity
 import ru.javersingleton.nested_themes.sample3.Sample3Activity
 import ru.javersingleton.nested_themes.themes.common.Theme
 import ru.javersingleton.nested_themes.themes.common.component.button.Button
-import ru.javersingleton.nested_themes.themes.redesign.RedesignTheme
+import ru.javersingleton.nested_themes.themes.default.DefaultTheme
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            RedesignTheme {
+            DefaultTheme {
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     Button(
                         modifier = Modifier.fillMaxWidth(),

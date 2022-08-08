@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Text
 import androidx.compose.ui.unit.dp
 import ru.javersingleton.nested_themes.themes.common.Theme
-import ru.javersingleton.nested_themes.themes.redesign.RedesignTheme
+import ru.javersingleton.nested_themes.themes.default.DefaultTheme
 
 class Sample3Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +17,7 @@ class Sample3Activity : AppCompatActivity() {
             Column(
                 verticalArrangement = Arrangement.spacedBy(6.dp)
             ) {
-                RedesignTheme {
+                DefaultTheme {
                     Text(
                         text = "DefaultTheme",
                         style = Theme.typography.h5,

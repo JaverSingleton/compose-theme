@@ -1,4 +1,4 @@
-package ru.javersingleton.nested_themes.themes.redesign
+package ru.javersingleton.nested_themes.themes.default
 
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
@@ -10,11 +10,11 @@ import ru.javersingleton.nested_themes.themes.common.component.content.createCon
 import ru.javersingleton.nested_themes.themes.common.component.promo_block.PromoBlockStyle
 import ru.javersingleton.nested_themes.themes.common.component.promo_block.createPromoBlock
 
-data class RedesignStyles(
+data class DefaultStyles(
     val contentStyle: StyleProvider<ContentStyle> = createContentStyle(),
     val buttonPrimaryLarge: StyleProvider<ButtonStyle> = createButtonPrimaryLarge(),
     val promoBlock: StyleProvider<PromoBlockStyle> = createPromoBlock(),
 )
 
-internal val LocalRedesignStyles: ProvidableCompositionLocal<RedesignStyles> =
-    staticCompositionLocalOf { RedesignStyles() }
+internal val LocalDefaultStyles: ProvidableCompositionLocal<DefaultStyles> =
+    staticCompositionLocalOf { DefaultStyles() }
