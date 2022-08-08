@@ -1,10 +1,6 @@
 package ru.javersingleton.nested_themes.themes.common.button
 
 import androidx.compose.foundation.layout.size
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ProvidableCompositionLocal
-import androidx.compose.runtime.ReadOnlyComposable
-import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
@@ -32,29 +28,22 @@ data class ButtonStyle(
     val shape: Shape,
 )
 
-val Theme.buttonPrimaryLarge: StyleProvider<ButtonStyle>
-    @Composable
-    @ReadOnlyComposable
-    get() = LocalButtonPrimaryLarge.current
+fun createButtonPrimaryLarge(): StyleProvider<ButtonStyle> = lazyStyle {
+    ButtonStyle(
+        backgroundColor = Theme.colors.blue,
+        contentColor = Theme.colors.constantWhite,
+        pressedColor = Theme.colors.blue600,
+        disabledBackgroundColor = Theme.colors.warmGray4,
+        disabledContentColor = Theme.colors.gray28,
+        minSize = 44.dp,
+        textStyle = Theme.typography.m1,
+        iconModifier = Modifier.size(22.dp),
+        iconPadding = 6.dp,
+        spinnerModifier = Modifier.size(22.dp),
+        horizontalPadding = 16.dp,
+        spinnerStroke = 2.dp,
+        elevation = 0.dp,
+        shape = Theme.shapes.micro,
+    )
+}
 
-internal val LocalButtonPrimaryLarge: ProvidableCompositionLocal<StyleProvider<ButtonStyle>> =
-    staticCompositionLocalOf {
-        lazyStyle {
-            ButtonStyle(
-                backgroundColor = Theme.colors.blue,
-                contentColor = Theme.colors.constantWhite,
-                pressedColor = Theme.colors.blue600,
-                disabledBackgroundColor = Theme.colors.warmGray4,
-                disabledContentColor = Theme.colors.gray28,
-                minSize = 44.dp,
-                textStyle = Theme.typography.m1,
-                iconModifier = Modifier.size(22.dp),
-                iconPadding = 6.dp,
-                spinnerModifier = Modifier.size(22.dp),
-                horizontalPadding = 16.dp,
-                spinnerStroke = 2.dp,
-                elevation = 0.dp,
-                shape = Theme.shapes.micro,
-            )
-        }
-    }

@@ -8,7 +8,6 @@ import ru.javersingleton.nested_themes.themes.common.StyleProvider
 import ru.javersingleton.nested_themes.themes.common.Theme
 import ru.javersingleton.nested_themes.themes.common.button.Button
 import ru.javersingleton.nested_themes.themes.common.button.ButtonStyle
-import ru.javersingleton.nested_themes.themes.common.button.buttonPrimaryLarge
 import ru.javersingleton.nested_themes.themes.common.lazyStyle
 import ru.javersingleton.nested_themes.themes.redesign.RedesignTheme
 
@@ -39,7 +38,7 @@ fun RedesignButton(
 val RedesignTheme.redesignButtonPrimary: StyleProvider<ButtonStyle>
     @Composable
     @ReadOnlyComposable
-    get() = lazyStyle(parent = Theme.buttonPrimaryLarge) {
+    get() = lazyStyle(parent = Theme.styles.buttonPrimaryLarge) {
         copy(
             backgroundColor = colors.redesignRed
         )

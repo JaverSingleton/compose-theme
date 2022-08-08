@@ -1,43 +1,27 @@
 package ru.javersingleton.nested_themes.themes.common
 
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ProvidableCompositionLocal
+import androidx.compose.runtime.staticCompositionLocalOf
+import ru.javersingleton.nested_themes.themes.common.button.ButtonStyle
+import ru.javersingleton.nested_themes.themes.common.button.createButtonPrimaryLarge
+import ru.javersingleton.nested_themes.themes.common.content.ContentStyles
+import ru.javersingleton.nested_themes.themes.common.content.createContentStyles
+import ru.javersingleton.nested_themes.themes.common.promo_block.PromoBlockStyle
+import ru.javersingleton.nested_themes.themes.common.promo_block.createPromoBlock
 
-interface StyleProvider<T> {
-    @Composable
-    operator fun invoke(): T
-    val parent: StyleProvider<T>?
+data class Styles(
+    val contentStyles: StyleProvider<ContentStyles> = createContentStyles(),
+    override val buttonPrimaryLarge: StyleProvider<ButtonStyle> = createButtonPrimaryLarge(),
+    override val promoBlock: StyleProvider<PromoBlockStyle> = createPromoBlock(),
+) : ButtonStyles, PromoBlockStyles
+
+interface ButtonStyles {
+    val buttonPrimaryLarge: StyleProvider<ButtonStyle>
 }
 
-fun <T> lazyStyle(factory: @Composable () -> T): StyleProvider<T> =
-    LazyStyle { factory() }
-
-fun <T> constStyle(style: T): StyleProvider<T> = ConstStyle(style)
-
-fun <T> lazyStyle(
-    parent: StyleProvider<T>,
-    factory: @Composable T.() -> T
-): StyleProvider<T> =
-    LazyStyle(
-        parent
-    ) { parent -> parent!!.factory() }
-
-internal class LazyStyle<T>(
-    override val parent: StyleProvider<T>? = null,
-    private val factory: @Composable (parent: T?) -> T
-) : StyleProvider<T> {
-
-    @Composable
-    override fun invoke(): T = factory(parent?.invoke())
-
+interface PromoBlockStyles {
+    val promoBlock: StyleProvider<PromoBlockStyle>
 }
 
-
-internal class ConstStyle<T>(
-    private val style: T
-) : StyleProvider<T> {
-    override val parent: StyleProvider<T>? = null
-
-    @Composable
-    override fun invoke(): T = style
-
-}
+internal val LocalStyles: ProvidableCompositionLocal<Styles> =
+    staticCompositionLocalOf { Styles() }

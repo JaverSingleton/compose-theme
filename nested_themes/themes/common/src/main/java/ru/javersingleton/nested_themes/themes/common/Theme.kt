@@ -5,15 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
-import ru.javersingleton.nested_themes.themes.common.button.ButtonStyle
-import ru.javersingleton.nested_themes.themes.common.button.LocalButtonPrimaryLarge
-import ru.javersingleton.nested_themes.themes.common.button.buttonPrimaryLarge
-import ru.javersingleton.nested_themes.themes.common.content.ContentStyles
 import ru.javersingleton.nested_themes.themes.common.content.LocalContentStyles
-import ru.javersingleton.nested_themes.themes.common.content.contentStyles
-import ru.javersingleton.nested_themes.themes.common.promo_block.LocalPromoBlock
-import ru.javersingleton.nested_themes.themes.common.promo_block.PromoBlockStyle
-import ru.javersingleton.nested_themes.themes.common.promo_block.promoBlock
 
 // 1. При создании нового компонента разработчик должен иметь возможность использовать для стиля токены
 // 2. После внесения компонента в токены разработчик должен иметь возможность изменить стиль на своём уровне
@@ -28,6 +20,10 @@ object Theme {
         @Composable
         @ReadOnlyComposable
         get() = LocalTypography.current
+    val styles: Styles
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalStyles.current
     val shapes: Shapes
         @Composable
         @ReadOnlyComposable
@@ -39,9 +35,7 @@ fun Theme(
     colors: Colors = Theme.colors,
     typography: Typography = Theme.typography,
     shapes: Shapes = Theme.shapes,
-    contentStyles: StyleProvider<ContentStyles> = Theme.contentStyles,
-    buttonPrimaryLarge: StyleProvider<ButtonStyle> = Theme.buttonPrimaryLarge,
-    promoBlock: StyleProvider<PromoBlockStyle> = Theme.promoBlock,
+    styles: Styles = Theme.styles,
     content: @Composable () -> Unit
 ) {
     CompositionLocalProvider(
@@ -50,15 +44,11 @@ fun Theme(
         LocalShapes provides remember { shapes },
     ) {
         CompositionLocalProvider(
-            LocalButtonPrimaryLarge provides remember { buttonPrimaryLarge },
-            LocalPromoBlock provides remember { promoBlock }
+            LocalStyles provides remember { styles },
+            LocalContentStyles provides remember { styles.contentStyles },
         ) {
-            CompositionLocalProvider(
-                LocalContentStyles provides remember { contentStyles },
-            ) {
-                MaterialTheme {
-                    content()
-                }
+            MaterialTheme {
+                content()
             }
         }
     }

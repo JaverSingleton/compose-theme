@@ -6,13 +6,14 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import ru.javersingleton.nested_themes.themes.common.Theme
+import ru.javersingleton.nested_themes.themes.common.content.ContentStyles
 import ru.javersingleton.nested_themes.themes.common.content.LocalContentStyles
 
 @Composable
 fun PromoBlock(
     modifier: Modifier = Modifier,
-    style: PromoBlockStyle = Theme.promoBlock(),
-    content: @Composable () -> Unit
+    style: PromoBlockStyle = Theme.styles.promoBlock(),
+    content: @Composable (contentStyles: ContentStyles) -> Unit
 ) {
     Surface(
         modifier = modifier
@@ -20,7 +21,7 @@ fun PromoBlock(
         CompositionLocalProvider(
             LocalContentStyles provides remember { style.contentStyles },
         ) {
-            content()
+            content(style.contentStyles())
         }
     }
 }
