@@ -14,7 +14,7 @@ fun createPromoBlock(): StyleProvider<PromoBlockStyle> = lazyStyle {
     PromoBlockStyle(
         contentStyles = lazyStyle(LocalContentStyles.current) {
             copy(
-                buttonPrimaryStyle = lazyStyle(Theme.styles.buttonPrimaryLarge) {
+                buttonPrimaryStyle = lazyStyle(buttonPrimaryStyle) {
                     copy(
                         backgroundColor = Theme.colors.warmGray4
                     )

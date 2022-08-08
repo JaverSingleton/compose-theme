@@ -21,7 +21,7 @@ fun PromoBlock(
         CompositionLocalProvider(
             LocalContentStyles provides remember { style.contentStyles },
         ) {
-            content(style.contentStyles())
+            content(LocalContentStyles.current())
         }
     }
 }

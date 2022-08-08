@@ -15,6 +15,10 @@ object RedesignTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalRedesignTypography.current
+    val styles: RedesignStyles
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalRedesignStyles.current
     val shapes: RedesignShapes
         @Composable
         @ReadOnlyComposable
@@ -26,7 +30,7 @@ fun RedesignTheme(
     colors: RedesignColors = RedesignTheme.colors,
     typography: RedesignTypography = RedesignTheme.typography,
     shapes: RedesignShapes = RedesignTheme.shapes,
-    styles: Styles = Theme.styles,
+    styles: RedesignStyles = RedesignTheme.styles,
     content: @Composable () -> Unit
 ) {
     CompositionLocalProvider(
@@ -48,7 +52,11 @@ fun RedesignTheme(
             shapes = Shapes(
                 micro = shapes.micro
             ),
-            styles = styles
+            styles = Styles(
+                contentStyles = styles.contentStyles,
+                buttonPrimaryLarge = styles.buttonPrimaryLarge,
+                promoBlock = styles.promoBlock
+            )
         ) {
             content()
         }

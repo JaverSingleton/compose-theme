@@ -45,7 +45,7 @@ fun Theme(
     ) {
         CompositionLocalProvider(
             LocalStyles provides remember { styles },
-            LocalContentStyles provides remember { styles.contentStyles },
+            LocalContentStyles provides remember { styles.contentStyles }
         ) {
             MaterialTheme {
                 content()

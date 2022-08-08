@@ -2,7 +2,7 @@ package ru.javersingleton.nested_themes.themes.common
 
 import androidx.compose.runtime.Composable
 
-interface StyleProvider<T> {
+interface StyleProvider<out T> {
     @Composable
     operator fun invoke(): T
     val parent: StyleProvider<T>?
@@ -17,9 +17,7 @@ fun <T> lazyStyle(
     parent: StyleProvider<T>,
     factory: @Composable T.() -> T
 ): StyleProvider<T> =
-    LazyStyle(
-        parent
-    ) { parent -> parent!!.factory() }
+    LazyStyle(parent) { parent -> parent!!.factory() }
 
 internal class LazyStyle<T>(
     override val parent: StyleProvider<T>? = null,
